@@ -122,9 +122,11 @@ for i, team in enumerate(team_names):
 #Note: Sims don't take vs into account. Ex: Chelsea vs Liverpool will have the same probability as Southampton vs Liverpool
 #So the final result is basically if things keep going how they are. Hoping to integrate this in the future ^^
 
-#All PL teams play total 38 games. All teams rn with the exception of Liverpool has played 19.
-#So I will be using 19 srry Liverpool lol (they're alr ahead by so much so don't know if it'll matter that much tbh)
-games_left = 19 
+#All PL teams play total 38 games.
+#df["Win Rate"] = (df["Wins"].astype(int) / df["Matches Played"].astype(int) * 100).round(2)
+
+games_left = int(matches_played_values[1]) #To get up to date matches played. (Not using [0] since Liverpool is the only team who has 1 match less.)
+print(f"Total games left is {games_left}.")
 
 #Function to simulate remaining matches 
 def simulate_matches(win_rate, draw_rate, loss_rate, games_left):
